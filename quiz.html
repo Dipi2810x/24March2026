@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="quiz.html">Quiz</a>
+    </div>
+
+    <h1>JavaScript Quiz</h1>
+
+    <div id="quiz-container">
+        <div class="question">
+            <p><strong>1. What does HTML stand for?</strong></p>
+            <button class="answer-btn" data-correct="false">Hyper Text Madeup Language</button>
+            <button class="answer-btn" data-correct="true">Hyper Text Markup Language</button>
+            <button class="answer-btn" data-correct="false">Home Tool Markup Language</button>
+        </div>
+
+        <div class="question">
+            <p><strong>2. Which CSS property changes the text color?</strong></p>
+            <button class="answer-btn" data-correct="false">text-color</button>
+            <button class="answer-btn" data-correct="true">color</button>
+            <button class="answer-btn" data-correct="false">font-color</button>
+        </div>
+
+        <div class="question">
+            <p><strong>3. Which tag is used for JavaScript?</strong></p>
+            <button class="answer-btn" data-correct="false">&lt;js&gt;</button>
+            <button class="answer-btn" data-correct="true">&lt;script&gt;</button>
+            <button class="answer-btn" data-correct="false">&lt;javascript&gt;</button>
+        </div>
+    </div>
+
+    <p>Score: <span id="score">0</span> / 3</p>
+
+    <script>
+        let score = 0;
+        const totalQuestions = 3;
+        let answered = 0;
+
+        const buttons = document.querySelectorAll('.answer-btn');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                if (button.disabled) return;
+
+                const isCorrect = button.getAttribute('data-correct') === 'true';
+                if (isCorrect) {
+                    score++;
+                    document.getElementById('score').innerText = score;
+                }
+
+                const questionDiv = button.parentElement;
+                const btnsInQuestion = questionDiv.querySelectorAll('.answer-btn');
+                btnsInQuestion.forEach(btn => btn.disabled = true);
+
+                answered++;
+                if (answered === totalQuestions) {
+                    alert('Quiz complete! Your final score: ' + score + '/' + totalQuestions);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
