@@ -64,3 +64,124 @@ p {
     font-weight: bold;
     font-size: 20px;
 }
+
+/* Reset margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden; /* Hides scrollbars because video covers full height */
+    height: 100vh;
+}
+
+/* Background Video */
+#bgVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2;
+    object-fit: cover; /* Ensures video covers the entire area without distortion */
+}
+
+/* Dark Overlay (improves text visibility) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+/* Main Content Container */
+.content {
+    position: relative;
+    z-index: 1; /* Places content above video and overlay */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    color: white;
+    padding: 1rem;
+}
+
+/* Picture frame + styling */
+.picture-frame {
+    margin-bottom: 2rem;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border: 4px solid rgba(255,255,255,0.9);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.picture-frame:hover {
+    transform: scale(1.05);
+}
+
+.picture-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the picture fills the circle nicely */
+    display: block;
+}
+
+/* Typography */
+.content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    line-height: 1.5;
+}
+
+/* Button styling */
+#muteBtn {
+    background-color: #ff6b6b;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#muteBtn:hover {
+    background-color: #ff4757;
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 2rem;
+    }
+    .content p {
+        font-size: 1rem;
+    }
+    .picture-frame {
+        width: 150px;
+        height: 150px;
+    }
+}

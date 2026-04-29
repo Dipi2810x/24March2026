@@ -14,5 +14,31 @@
     <p>This is the home page. I built this with HTML, CSS, and JavaScript.</p>
     <p>This is how you add a picture:</p>
     <img src="cute_slime.png" alt="cute slime picture" width="300">
+
+     <!-- Background Video -->
+    <video autoplay muted loop id="bgVideo">
+        <!-- Use a local video file OR a URL. Provide multiple formats for compatibility -->
+        <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <!-- Dark Overlay to improve text contrast -->
+    <div class="overlay"></div>
+
+    <!-- Main Content: includes your picture and text -->
+    <div class="content">
+        <!-- Picture element (your image) -->
+        <div class="picture-frame">
+            <img src="https://picsum.photos/id/1015/300/300" alt="Scenic mountain landscape example picture">
+            <!-- Replace 'https://picsum.photos/id/1015/300/300' with your own image file path -->
+        </div>
+        <h1>Welcome to My Creative Space</h1>
+        <p>Explore, learn, and build amazing things.</p>
+        <button id="muteBtn">🔊 Mute</button>
+    </div>
+
+    <script src="script.js"></script>
+    
 </body>
 </html>

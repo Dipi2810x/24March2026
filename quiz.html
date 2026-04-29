@@ -38,33 +38,7 @@
 
     <p>Score: <span id="score">0</span> / 3</p>
 
-    <script>
-        let score = 0;
-        const totalQuestions = 3;
-        let answered = 0;
+    <script src="script.js"></script>
 
-        const buttons = document.querySelectorAll('.answer-btn');
-
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                if (button.disabled) return;
-
-                const isCorrect = button.getAttribute('data-correct') === 'true';
-                if (isCorrect) {
-                    score++;
-                    document.getElementById('score').innerText = score;
-                }
-
-                const questionDiv = button.parentElement;
-                const btnsInQuestion = questionDiv.querySelectorAll('.answer-btn');
-                btnsInQuestion.forEach(btn => btn.disabled = true);
-
-                answered++;
-                if (answered === totalQuestions) {
-                    alert('Quiz complete! Your final score: ' + score + '/' + totalQuestions);
-                }
-            });
-        });
-    </script>
 </body>
 </html>
