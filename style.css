@@ -185,3 +185,71 @@ body {
         height: 150px;
     }
 }
+
+/* Report button centered and prominent */
+.report-center {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+#reportBtn {
+    background: linear-gradient(90deg,#ff5f6d,#ffc371);
+    border: none;
+    color: white;
+    padding: 18px 28px;
+    font-size: 1.15rem;
+    border-radius: 999px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+#reportBtn:hover { transform: translateY(-2px); }
+
+/* Modal overlay for choosing report type and map */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+}
+
+.modal {
+    background: white;
+    width: 90%;
+    max-width: 1000px;
+    height: 80vh;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+}
+
+.modal .left { flex: 1 1 60%; }
+.modal .right { flex: 0 0 360px; border-left: 1px solid #eee; overflow-y: auto; }
+
+#map { width: 100%; height: 100%; }
+
+.report-types { padding: 16px; }
+.report-types button { margin: 6px 6px 6px 0; padding: 8px 12px; border-radius: 6px; border: 1px solid #ddd; cursor: pointer; }
+
+.sidebar-form { padding: 16px; }
+.sidebar-form h3 { margin-bottom: 8px; }
+.sidebar-form label { display:block; margin-top:10px; font-weight:600; }
+.sidebar-form input[type="text"], .sidebar-form textarea { width:100%; padding:8px; margin-top:6px; border-radius:6px; border:1px solid #ccc; }
+.sidebar-form button { margin-top:12px; padding:10px 14px; background:#007bff; color:white; border:none; border-radius:6px; cursor:pointer; }
+
+.close-btn { position: absolute; right: 12px; top: 12px; background: transparent; border: none; font-size: 20px; cursor: pointer; }
+
+/* Sidebar like Google Maps reviews (floating card) */
+.review-card { padding: 12px; border-bottom: 1px solid #f0f0f0; }
+
+@media (max-width:600px) {
+    .modal { flex-direction: column; height: 90vh; }
+    .modal .right { flex-basis: 40%; max-height: 40%; }
+}
