@@ -73,6 +73,7 @@ const clearMarker = document.getElementById('clearMarker');
 const submitReport = document.getElementById('submitReport');
 
 function openModal() {
+    // kept for backward compatibility if modal exists
     reportModal.style.display = 'flex';
     if (!mapInitialized) initMap();
 }
@@ -96,7 +97,8 @@ function closeModalFn() {
     reportModal.style.display = 'none';
 }
 
-reportBtn.addEventListener('click', openModal);
+// When on the homepage, take user to full page map reporting UI.
+reportBtn.addEventListener('click', () => { window.location.href = 'map.html'; });
 closeModal.addEventListener('click', closeModalFn);
 reportModal.addEventListener('click', (e) => { if (e.target===reportModal) closeModalFn(); });
 
