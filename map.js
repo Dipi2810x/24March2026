@@ -30,10 +30,12 @@ function createIcon(color) {
 
 function init() {
     const mapEl = document.getElementById('map');
-    map = L.map(mapEl).setView([0,0], 2);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
+    map = L.map(mapEl).setView([-33.931000, 18.859000], 13);
+
+    L.tileLayer(
+        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        { attribution: 'Tiles © Esri — Source: Esri, Garmin, GeoEye, Earthstar Geographics', maxZoom: 19 }
+    ).addTo(map);
 
     // create a default marker at center (hidden until set)
     marker = L.marker([0,0], { draggable: true, opacity: 0 }).addTo(map);
